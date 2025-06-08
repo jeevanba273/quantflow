@@ -3,7 +3,7 @@
 <!-- HEADER STYLE: CLASSIC -->
 <div align="center">
 
-# 📈 QUANTFLOW
+# 📈 QUANTFLOW FINANCE
 
 <em>Empower your financial decisions with precision analytics.</em>
 
@@ -31,7 +31,7 @@
 - [Quick Start](#-quick-start)
 - [Getting Started](#-getting-started)
     - [Prerequisites](#-prerequisites)
-    - [Installation](#-installation)
+    - [Installation](#%EF%B8%8F-installation)
     - [Usage](#-usage)
     - [Testing](#-testing)
 - [Features](#-features)
