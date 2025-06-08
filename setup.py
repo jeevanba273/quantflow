@@ -6,7 +6,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="quantflow-finance",
-    version="0.1.2",
+    version="0.1.3",
     author="Jeevan B A",
     author_email="jeevanba273@gmail.com",
     description="Professional quantitative finance library for options pricing, risk analytics, and portfolio management",

@@ -1,13 +1,13 @@
 Metadata-Version: 2.4
 Name: quantflow-finance
-Version: 0.1.1
+Version: 0.1.2
 Summary: Professional quantitative finance library for options pricing, risk analytics, and portfolio management
-Home-page: https://github.com/jeevanba273/quantflow
+Home-page: https://github.com/jeevanba273/quantflow-finance
 Author: Jeevan B A
 Author-email: jeevanba273@gmail.com
-Project-URL: Bug Reports, https://github.com/jeevanba273/quantflow/issues
-Project-URL: Source, https://github.com/jeevanba273/quantflow
-Project-URL: Documentation, https://github.com/jeevanba273/quantflow#readme
+Project-URL: Bug Reports, https://github.com/jeevanba273/quantflow-finance/issues
+Project-URL: Source, https://github.com/jeevanba273/quantflow-finance
+Project-URL: Documentation, https://github.com/jeevanba273/quantflow-finance#readme
 Keywords: quantitative finance,options pricing,risk management,black-scholes,portfolio analysis,financial engineering,derivatives,VaR,market data
 Classifier: Development Status :: 3 - Alpha
 Classifier: Intended Audience :: Financial and Insurance Industry
@@ -114,7 +114,7 @@ All implementations are mathematically validated:
 
 ## 🔗 Links
 
-- **Documentation**: [GitHub Repository](https://github.com/jeevanba273/quantflow)
+- **Documentation**: [GitHub Repository](https://github.com/jeevanba273/quantflow-finance)
 - **Source Code**: Full source available under MIT License
 - **Examples**: Comprehensive examples and tutorials included
 

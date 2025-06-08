@@ -78,12 +78,53 @@ class BlackScholes:
         # Divide by 100 to get sensitivity per 1% volatility change
         return (self.S * norm.pdf(d1) * np.sqrt(self.T)) / 100
     
+    def rho(self):
+        """
+        Calculate option rho (∂V/∂r).
+        
+        Rho measures the rate of change of option price with respect to 
+        the risk-free interest rate.
+        
+        Returns
+        -------
+        float
+            Option rho (for 1% change in interest rate)
+            
+        Notes
+        -----
+        For calls: ρ = KTe^(-rT)N(d₂) / 100
+        For puts: ρ = -KTe^(-rT)N(-d₂) / 100
+        """
+        d2 = self._d2()
+        
+        if self.option_type == 'call':
+            return (self.K * self.T * np.exp(-self.r * self.T) * 
+                   norm.cdf(d2)) / 100
+        else:
+            return -(self.K * self.T * np.exp(-self.r * self.T) * 
+                    norm.cdf(-d2)) / 100
+    
     def greeks(self):
-        """Calculate all Greeks at once."""
+        """
+        Calculate all Greeks at once.
+        
+        Returns
+        -------
+        dict
+            Dictionary containing all Greeks:
+            - delta: Price sensitivity to underlying
+            - gamma: Delta sensitivity to underlying  
+            - theta: Time decay (per year)
+            - vega: Volatility sensitivity (per 1%)
+            - rho: Interest rate sensitivity (per 1%)
+        """
         return {
             'price': self.price(),
             'delta': self.delta(),
-            'gamma': self.gamma(),
+            'gamma': self.gamma(), 
             'theta': self.theta(),
-            'vega': self.vega()
+            'vega': self.vega(),
+            'rho': self.rho()
         }
+    
+    
