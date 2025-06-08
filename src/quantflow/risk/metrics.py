@@ -19,10 +19,15 @@ class RiskMetrics:
     """
     
     def __init__(self, returns):
-        if isinstance(returns, pd.Series):
+        if isinstance(returns, pd.DataFrame):
+            # If DataFrame, take the first column or flatten
+            self.returns = returns.iloc[:, 0].dropna()
+        elif isinstance(returns, pd.Series):
             self.returns = returns.dropna()
         else:
-            self.returns = pd.Series(returns).dropna()
+            # Handle numpy arrays
+            returns_flat = np.array(returns).flatten()
+            self.returns = pd.Series(returns_flat).dropna()
     
     def var_historical(self, confidence_level=0.05):
         """Calculate Historical Value at Risk."""
