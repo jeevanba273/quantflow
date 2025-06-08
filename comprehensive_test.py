@@ -394,4 +394,3 @@ except Exception as e:
     print("💡 Please check your installation and try again")
 
 print(f"\n⏰ Test completed at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-print("📊 Ready for Fall 2026 quantitative finance applications! 🚀")
