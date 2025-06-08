@@ -44,7 +44,7 @@
 - [Roadmap](#-roadmap)
 - [Contributing](#-contributing)
 - [License](#-license)
-- [Acknowledgment](#-acknowledgment)
+- [Acknowledgments](#-acknowledgments)
 
 ---
 
