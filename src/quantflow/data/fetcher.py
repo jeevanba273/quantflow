@@ -100,7 +100,6 @@ class MarketData:
                         period=period, 
                         interval=interval,
                         progress=False,
-                        show_errors=False,
                         threads=False,
                         session=session
                     )
