@@ -9,7 +9,6 @@ import pandas as pd
 import numpy as np
 import time
 import random
-import requests
 from typing import Union, List
 
 
@@ -18,45 +17,11 @@ class MarketData:
     Market data utilities for fetching and processing financial data.
     """
     
-    # Realistic browser headers to avoid detection
-    BROWSER_HEADERS = [
-        {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36',
-            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-            'Accept-Language': 'en-US,en;q=0.5',
-            'Accept-Encoding': 'gzip, deflate, br',
-            'Connection': 'keep-alive',
-            'Upgrade-Insecure-Requests': '1',
-        },
-        {
-            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36',
-            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-            'Accept-Language': 'en-US,en;q=0.9',
-            'Accept-Encoding': 'gzip, deflate, br',
-            'Connection': 'keep-alive',
-        },
-        {
-            'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36',
-            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-            'Accept-Language': 'en-US,en;q=0.9',
-            'Accept-Encoding': 'gzip, deflate, br',
-            'Connection': 'keep-alive',
-        }
-    ]
-    
-    @staticmethod
-    def _setup_session():
-        """Set up a requests session with realistic browser headers."""
-        session = requests.Session()
-        headers = random.choice(MarketData.BROWSER_HEADERS)
-        session.headers.update(headers)
-        return session
-    
     @staticmethod
     def fetch_stock_data(tickers: Union[str, List[str]], period='1y', interval='1d', 
                         max_tries=3, delay_range=(1, 3)):
         """
-        Fetch stock data from Yahoo Finance with retry logic and browser headers.
+        Fetch stock data from Yahoo Finance with retry logic.
         
         Parameters:
         tickers: str or list of str - Stock symbols
@@ -86,22 +51,18 @@ class MarketData:
                     print(f"Waiting {delay:.1f} seconds before retry...")
                     time.sleep(delay)
                 
-                # Set up session with realistic browser headers
-                session = MarketData._setup_session()
-                
-                # Create yfinance tickers with custom session
+                # Let yfinance handle sessions automatically (no custom session)
                 if len(tickers) == 1:
-                    ticker_obj = yf.Ticker(tickers[0], session=session)
+                    ticker_obj = yf.Ticker(tickers[0])
                     data = ticker_obj.history(period=period, interval=interval)
                 else:
-                    # For multiple tickers, use download with session
+                    # For multiple tickers, use download
                     data = yf.download(
                         tickers, 
                         period=period, 
                         interval=interval,
                         progress=False,
-                        threads=False,
-                        session=session
+                        threads=False
                     )
                 
                 # Check if data is empty
@@ -173,11 +134,8 @@ class MarketData:
                 if i > 0:
                     time.sleep(batch_delay)
                 
-                # Use different browser headers for each request
-                session = MarketData._setup_session()
-                
-                # Fetch single stock with custom session
-                ticker_obj = yf.Ticker(ticker, session=session)
+                # Fetch single stock (let yfinance handle sessions)
+                ticker_obj = yf.Ticker(ticker)
                 stock_data = ticker_obj.history(period=period, interval=interval)
                 
                 if not stock_data.empty:

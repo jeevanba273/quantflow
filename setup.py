@@ -7,7 +7,7 @@ from setuptools import setup, find_packages
 setup(
     name="quantflow-finance",
     license="MIT License",
-    version="0.1.7",
+    version="0.1.9",
     author="Jeevan B A",
     author_email="jeevanba273@gmail.com",
     description="Professional quantitative finance library for options pricing, risk analytics, and portfolio management",
