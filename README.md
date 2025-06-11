@@ -26,6 +26,11 @@
 
 ---
 
+```bash
+pip install quantflow-finance
+```
+---
+
 ## 📄 Table of Contents
 
 - [Overview](#-overview)
