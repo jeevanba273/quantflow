@@ -8,7 +8,7 @@
 <em>Empower your financial decisions with precision analytics.</em>
 
 <!-- BADGES -->
-<img src="https://img.shields.io/github/license/jeevanba273/quantflow-finance?style=flat&logo=opensourceinitiative&logoColor=white&color=0080ff" alt="license">
+<img src="https://img.shields.io/github/license/jeevanba273/quantflow-finance?style=flat&logo=opensourceinitiative&logoColor=white&color=0080ff&cache=bust&v=1" alt="license">
 <img src="https://img.shields.io/github/last-commit/jeevanba273/quantflow-finance?style=flat&logo=git&logoColor=white&color=0080ff" alt="last-commit">
 <img src="https://img.shields.io/github/languages/top/jeevanba273/quantflow-finance?style=flat&color=0080ff" alt="repo-top-language">
 <img src="https://img.shields.io/github/languages/count/jeevanba273/quantflow-finance?style=flat&color=0080ff" alt="repo-language-count">
