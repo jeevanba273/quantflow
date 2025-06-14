@@ -3,7 +3,7 @@
 <!-- HEADER STYLE: CLASSIC -->
 <div align="center">
 
-# 📈 QUANTFLOW FINANCE
+# 📈 QUANTFLOW FINANCE 
 
 <em>Empower your financial decisions with precision analytics.</em>
 
